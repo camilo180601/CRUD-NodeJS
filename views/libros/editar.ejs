@@ -1,0 +1,39 @@
+<%- include ../layouts/header.ejs %>
+<br>
+<br>
+
+<div class="card">
+    <div class="card-header">
+      Formulario de Edición de Datos
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Title</h4>
+      <p class="card-text">
+        <form action="../actualizar/" method="post" enctype="multipart/form-data">
+        
+            <input type="hidden" name="id" value="<%=libro.id%>">
+        
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" value="<%=libro.nombre%>" name="nombre" id="nombre" class="form-control"
+                    placeholder="Escriba su nombre" aria-describedby="helpId">
+            </div>
+        
+            <div class="mb-3">
+                <label for="archivo" class="form-label">Imagen</label>
+                <br>
+                <img src="/images/<%=libro.imagen%>" width="100" class="img-fluid rounded-top" alt="">
+                <br>
+                <input type="file" class="form-control" name="archivo" id="archivo" placeholder="Seleccione la imagen"
+                    aria-describedby="fileHelpId">
+            </div>
+        
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <a class="btn btn-primary" href="/libros" role="button">Cancelar</a>
+        </form>
+      </p>
+    </div>
+    
+  </div>
+  
+<%- include ../layouts/footer.ejs %>

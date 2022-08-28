@@ -1,0 +1,51 @@
+<%- include ../layouts/header.ejs %>
+        <br>
+        <br>
+        <a href="/libros/crear" class="btn btn-primary" type="button">Crear un nuevo libro</a>
+        <br>
+        <br>
+
+        <table class="table table-light table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Imagen</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <% for( let libro = 0; libro < libros.length; libro++ ) { %>
+                        <tr>
+                            <td> <%=libros[libro].id%> </td>
+                            <td> <%=libros[libro].nombre%> </td>
+                            <td>
+                                <img src="images/<%=libros[libro].imagen%>" width="100" class="img-thumbnail" alt="">
+                                
+                            </td>
+                            <td>
+                                <div class="btn-group-vertical" role="group" aria-label="btn-group-vertical">
+                                    <form class="form-inline" method="post" action="/libros/editar/<%=libros[libro].id%>">
+
+                                        <button type="submit" class="btn btn-warning">Editar</button>
+                                        
+                                    </form>
+                                </div>
+                                
+                                |
+                                
+                                <div class="btn-group-vertical" role="group" aria-label="btn-group-vertical">
+                                    <form class="form-inline" method="post" action="/libros/eliminar/<%=libros[libro].id%>">
+
+                                        <button type="submit" class="btn btn-danger">Borrar</button>
+                                        
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    <% } %>
+                    
+                </tbody>
+        </table>
+
+<%- include ../layouts/footer.ejs %>
